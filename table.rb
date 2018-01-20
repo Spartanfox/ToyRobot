@@ -9,9 +9,9 @@ class Table
   def to_s
     @height.times do |y|
       @width.times do |x|
-        if @engine.robot.is_here(x,y)
+        if @engine.robot.is_here(x,@height-y-1)
           print " #{Robot::DIRECTION.key(@engine.robot.facing).split("").first}"
-        elsif @engine.collides(x,y)
+        elsif @engine.collides(x,@height-y-1)
           print " #"
         else
           print ' .'
